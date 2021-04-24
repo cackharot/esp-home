@@ -25,10 +25,11 @@ pip3 install stcgal # burn the hex firmware to the ST microcontroller via USB TT
 ```
 
 ```bash
+cd ./relay
 sdcc -mmcs51 --iram-size 128 --xram-size 0 --code-size 4096 --nooverlay --noinduction --verbose --debug -V --std-sdcc89 --model-small "relay.c"
 
 # TO upload
-stcgal -p /dev/ttyUSB1 -b 1200 -D -t 11059 relay.ihx
+stcgal -p /dev/ttyUSB1 -b 1200 -D -t 11059 ./relay.ihx
 # Enter this command and re-power the relay module to start uploading the code
 ```
 
@@ -57,6 +58,22 @@ To fix that you need to edit the file under `~/Library/Arduino15/packages/esp826
 iokit = ctypes.cdll.LoadLibrary('/System/Library/Frameworks/IOKit.framework/IOKit')
 cf = ctypes.cdll.LoadLibrary('/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation')
 ```
+
+To program the esp module, connect it to the USB TTL adapter as show below (wiring diagram):
+
+Choose 74880 baud rate in the Serial monitor.
+Pre reset button and you will see this in the serial monitor of Arduino IDE:
+
+```
+ ets Jan  8 2013,rst cause:1, boot mode:(1,6)
+```
+
+This means your esp is in boot mode and ready to accept new code.
+
+Edit the `esp-home.ino` and replace SSID and password with correct values.
+
+Upload/flash the `esp-home.ino` code.
+
 
 ### References
 
