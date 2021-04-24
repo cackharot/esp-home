@@ -1,0 +1,4 @@
+.vscode/
+tmp
+*.{lst,asm,adb,lk,lst,map,mem,omf,rel,rst,sym}
+*.bak
