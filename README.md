@@ -1,6 +1,6 @@
 # ESP Home Automation Utils
 
-Collection of programs to experiment using ESP01S and other variantes.
+Collection of programs to experiment using ESP01S and other variants.
 
 ## Relay - HW-655
 
@@ -77,6 +77,6 @@ Upload/flash the `esp-home.ino` code.
 
 ### References
 
-[1] https://github.com/libretto/RelayMCU
-[2] https://github.com/sololko/ESP-01-relay-HW-655
-[3] https://www.tweaking4all.com/forum/arduino/macos-aruino-ide-how-to-fix-pyserial-or-esptool-directories-not-found-next-to-this-upload-py-tool-error-esp8266/
+- https://github.com/libretto/RelayMCU
+- https://github.com/sololko/ESP-01-relay-HW-655
+- https://www.tweaking4all.com/forum/arduino/macos-aruino-ide-how-to-fix-pyserial-or-esptool-directories-not-found-next-to-this-upload-py-tool-error-esp8266/
