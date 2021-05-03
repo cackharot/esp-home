@@ -74,6 +74,35 @@ Edit the `esp-home.ino` and replace SSID and password with correct values.
 
 Upload/flash the `esp-home.ino` code.
 
+### Custom firmware
+
+Build the custom firmware following the guidelines and enable/disable necessary modules and get the `0x00000.bin` and `0x100000.bin` files.
+
+Use the `./flash_firmware.sh` to burn it.
+
+
+### OSX monitor nodemcu serial port
+
+``` bash
+# use the below to get the dev file path
+nodemcu-tool devices
+# use screen to view the nodemcu logs
+screen /dev/cu.usbserial-1420 115200
+```
+
+To quit screen press `Ctrl+a Ctrl+\` adn `y`
+
+### Credentials file
+
+`src/credentials.lua` is not checked into git for obvious reasons. Create that file will below contents
+
+``` text
+SSID=""
+PASSWORD=""
+
+MQTT_HOST=""
+MQTT_PORT=1883
+```
 
 ### References
 

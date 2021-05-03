@@ -2,3 +2,6 @@
 tmp
 *.{lst,asm,adb,lk,lst,map,mem,omf,rel,rst,sym}
 *.bak
+.DS_Store
+.dir-locals.el
+src/credentials.lua

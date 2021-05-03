@@ -1,17 +1,19 @@
+function readAdcVal()
+    val = adc.read(0)
+    print("ADC Val=" .. val)
+    return val
+end
 
-function readTempAndHumidity(pin)
+function adcValToVolt(val)
+    return (3.3/1023)*val
+end
+
+function readTempAndHumidity(pin, cb)
     status, temp, humi, temp_dec, humi_dec = dht.read(pin)
     if status == dht.OK then
-        -- Integer firmware using this example
-        -- print(string.format("DHT Temperature:%d.%03d;Humidity:%d.%03d\r\n",
-        --     math.floor(temp),
-        --     temp_dec,
-        --     math.floor(humi),
-        --     humi_dec
-        -- ))
-
-        -- Float firmware using this example
-        -- print("DHT Temperature:"..temp..";".."Humidity:"..humi)
+        if cb ~= nil then
+            cb(temp, humi)
+        end
         return string.format("Temp: "..temp.." Humidity: "..humi)
     elseif status == dht.ERROR_CHECKSUM then
         print( "DHT Checksum error." )

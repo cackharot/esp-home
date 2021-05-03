@@ -65,7 +65,7 @@ wifi.eventmon.register(wifi.eventmon.STA_GOT_IP, wifi_got_ip_event)
 wifi.eventmon.register(wifi.eventmon.STA_DISCONNECTED, wifi_disconnect_event)
 
 mytimer = tmr.create()
-mytimer:register(3000, tmr.ALARM_SINGLE, function()
+mytimer:register(1000, tmr.ALARM_SINGLE, function()
     print("Connecting to wifi " .. SSID) 
     wifi.setmode(wifi.STATION)
     wifi.sta.config{ssid=SSID, pwd=PASSWORD}
