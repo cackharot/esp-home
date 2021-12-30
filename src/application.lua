@@ -66,17 +66,19 @@ end
 
 m = init_mqtt(node.chipid() .. "-dev", 120)
 mqtt_connect()
+tmphum_topic="homeassistant/sensor/".. node.chipid() .. "/temp_and_hum/state"
+volt_topic="homeassistant/sensor/".. node.chipid() .. "/volt/state"
 
 function publishSensorsVals()
     readTempAndHumidity(DHT11_PIN, function(temp, humi)
-            data = '{"temparature": '.. temp .. ', "humidity": '.. humi ..'}'
-            m:publish("homeassistant/office/tmp_and_hum/set", data, 0, 0)
+            data = '{"temperature": '.. temp .. ', "humidity": '.. humi ..'}'
+            m:publish(tmphum_topic, data, 0, 0)
             print("Sent " .. data)
     end)
     adcVal = readAdcVal()
     v = adcValToVolt(adcVal)
     data = '{"raw": '.. adcVal .. ', "volts": '.. v ..'}'
-    m:publish("homeassistant/office/voltage/set", data, 0, 0)
+    m:publish(volt_topic, data, 0, 0)
     print("Sent " .. data)
 end
 
